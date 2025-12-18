@@ -15,7 +15,6 @@ import Layout from "@/components/layout/Layout";
 import GlobalNetworkMap from "@/components/home/GlobalNetworkMap";
 import TrustIndicators from "@/components/home/TrustIndicators";
 import FinancialChart from "@/components/home/FinancialChart";
-import GoogleMap from "@/components/ui/GoogleMap";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const fadeInUp = {
@@ -147,21 +146,99 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right Visual - Google Map */}
+            {/* Right Visual - Global Network Globe */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative hidden lg:block"
             >
-              <div className="relative w-full h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-200">
-                <GoogleMap
-                  apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY || ""}
-                  center={{ lat: 20, lng: 0 }}
-                  zoom={2}
-                  markerTitle="GBPL Global Network"
-                  className="w-full h-full"
-                />
+              <div className="relative w-full h-[600px] flex items-center justify-center">
+                {/* SVG World Map */}
+                <svg viewBox="0 0 800 400" className="w-full h-auto">
+                  {/* Background */}
+                  <rect width="800" height="400" fill="#f8fafc" />
+                  
+                  {/* Simplified World Map Paths */}
+                  <g fill="#d1d5db" stroke="#9ca3af" strokeWidth="0.5">
+                    {/* North America */}
+                    <path d="M80,60 Q100,50 130,55 L160,70 Q180,85 175,110 L155,130 Q135,145 105,140 L80,125 Q60,105 80,60Z" />
+                    <path d="M100,75 Q115,70 130,75 L140,85 Q145,95 140,105 L125,112 Q110,115 100,108 L95,95 Q95,82 100,75Z" />
+                    
+                    {/* South America */}
+                    <path d="M180,200 Q200,190 215,200 L225,230 Q235,265 220,300 L195,315 Q170,305 175,265 L180,225 Q178,210 180,200Z" />
+                    
+                    {/* Europe */}
+                    <path d="M360,55 Q390,48 415,58 L435,80 Q445,100 430,120 L400,130 Q375,125 365,100 L358,75 Q355,62 360,55Z" />
+                    
+                    {/* Africa */}
+                    <path d="M375,140 Q405,132 430,145 L450,180 Q465,220 455,265 L425,290 Q390,285 380,250 L370,200 Q368,165 375,140Z" />
+                    
+                    {/* Asia */}
+                    <path d="M480,50 Q540,40 610,55 L660,85 Q690,115 680,155 L640,185 Q590,200 540,190 L490,170 Q460,140 470,100 L480,70 Q478,58 480,50Z" />
+                    <path d="M520,70 Q545,65 570,72 L590,88 Q600,105 592,122 L570,135 Q545,140 525,132 L510,115 Q505,95 520,70Z" />
+                    
+                    {/* Australia */}
+                    <path d="M620,260 Q650,252 680,262 L700,285 Q710,310 695,335 L665,345 Q635,340 625,315 L618,285 Q615,270 620,260Z" />
+                  </g>
+
+                  {/* Connection Lines */}
+                  <g stroke="#2D9CDB" strokeWidth="2" strokeDasharray="6,3" opacity="0.6">
+                    {/* Seoul to UK */}
+                    <path d="M600,100 Q480,60 390,85" fill="none">
+                      <animate attributeName="stroke-dashoffset" from="18" to="0" dur="2s" repeatCount="indefinite" />
+                    </path>
+                    {/* Seoul to Chile */}
+                    <path d="M600,100 Q400,200 200,280" fill="none">
+                      <animate attributeName="stroke-dashoffset" from="18" to="0" dur="2s" repeatCount="indefinite" />
+                    </path>
+                    {/* Seoul to Brazil */}
+                    <path d="M600,100 Q450,180 210,240" fill="none">
+                      <animate attributeName="stroke-dashoffset" from="18" to="0" dur="2s" repeatCount="indefinite" />
+                    </path>
+                  </g>
+
+                  {/* Seoul Marker (HQ) */}
+                  <g transform="translate(600, 100)">
+                    <circle r="10" fill="#0A2540" />
+                    <circle r="6" fill="#2D9CDB" />
+                    <circle r="14" fill="none" stroke="#2D9CDB" strokeWidth="2" opacity="0.5">
+                      <animate attributeName="r" from="10" to="22" dur="1.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.6" to="0" dur="1.5s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="18" y="5" fontSize="12" fill="#0A2540" fontWeight="600">Seoul HQ</text>
+                  </g>
+
+                  {/* UK Marker */}
+                  <g transform="translate(390, 85)">
+                    <circle r="7" fill="#FF6B6B" />
+                    <circle r="11" fill="none" stroke="#FF6B6B" strokeWidth="2" opacity="0.5">
+                      <animate attributeName="r" from="7" to="15" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="12" y="4" fontSize="11" fill="#0A2540" fontWeight="500">UK</text>
+                  </g>
+
+                  {/* Chile Marker */}
+                  <g transform="translate(200, 280)">
+                    <circle r="7" fill="#2D9CDB" />
+                    <circle r="11" fill="none" stroke="#2D9CDB" strokeWidth="2" opacity="0.5">
+                      <animate attributeName="r" from="7" to="15" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="12" y="4" fontSize="11" fill="#0A2540" fontWeight="500">Chile</text>
+                  </g>
+
+                  {/* Brazil Marker */}
+                  <g transform="translate(210, 240)">
+                    <circle r="7" fill="#2D9CDB" />
+                    <circle r="11" fill="none" stroke="#2D9CDB" strokeWidth="2" opacity="0.5">
+                      <animate attributeName="r" from="7" to="15" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.6" to="0" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="12" y="4" fontSize="11" fill="#0A2540" fontWeight="500">Brazil</text>
+                  </g>
+                </svg>
               </div>
             </motion.div>
           </div>
