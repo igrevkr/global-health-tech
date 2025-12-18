@@ -3,48 +3,59 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, MapPin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const networkHubs = [
-  {
-    id: "uk",
-    name: "영국 (유럽 선진 시장)",
-    city: "Bristol NHS 의료진 협력",
-    partner: "Bristol NHS Medical Staff",
-    status: "MOU 체결 및 실증 프로젝트 착수",
-    description: "간질환/흉부질환 AI 실증 및 임상 피드백 확보, 뇌종양 변화 관찰 AI 공동연구 논의 중",
-    highlight: "NHS 중심 의료 AI 도입률 60% 시장",
-    position: { top: "28%", left: "47%" },
-    flag: "🇬🇧",
-    color: "teal"
-  },
-  {
-    id: "chile",
-    name: "칠레 (중남미 교두보)",
-    city: "BIOANDINA SPA, 보건부 연계",
-    partner: "BIOANDINA SPA & Ministry of Health",
-    status: "MOU 체결 및 실증 프로젝트 착수",
-    description: "정부 보건 디지털화 추진에 발맞춘 시범 적용, 중남미 시장 진입 전 실증 테스트베드",
-    highlight: "",
-    position: { top: "72%", left: "28%" },
-    flag: "🇨🇱",
-    color: "coral"
-  },
-  {
-    id: "brazil",
-    name: "브라질 (중남미 최대 시장)",
-    city: "현지 의료기관 파트너십",
-    partner: "Local Medical Institutions",
-    status: "MOU 체결 및 실증 프로젝트 착수",
-    description: "현지 등록 및 판매를 위한 적합성 검증 수행, 남미 최대 규모 시장성 확인",
-    highlight: "ANVISA 등록 연계 지원 가능",
-    position: { top: "62%", left: "35%" },
-    flag: "🇧🇷",
-    color: "navy"
-  }
-];
-
 export default function GlobalNetworkMap() {
-  const [selectedHub, setSelectedHub] = useState<typeof networkHubs[0] | null>(null);
+  const [selectedHub, setSelectedHub] = useState<{
+    id: string;
+    name: string;
+    city: string;
+    partner: string;
+    status: string;
+    description: string;
+    highlight: string;
+    position: { top: string; left: string };
+    flag: string;
+    color: string;
+  } | null>(null);
   const { t } = useLanguage();
+
+  const networkHubs = [
+    {
+      id: "uk",
+      name: t("network.hub.uk.name"),
+      city: t("network.hub.uk.city"),
+      partner: "Bristol NHS Medical Staff",
+      status: t("network.hub.uk.status"),
+      description: t("network.hub.uk.description"),
+      highlight: t("network.hub.uk.highlight"),
+      position: { top: "28%", left: "47%" },
+      flag: "🇬🇧",
+      color: "teal"
+    },
+    {
+      id: "chile",
+      name: t("network.hub.chile.name"),
+      city: t("network.hub.chile.city"),
+      partner: "BIOANDINA SPA & Ministry of Health",
+      status: t("network.hub.chile.status"),
+      description: t("network.hub.chile.description"),
+      highlight: "",
+      position: { top: "72%", left: "28%" },
+      flag: "🇨🇱",
+      color: "coral"
+    },
+    {
+      id: "brazil",
+      name: t("network.hub.brazil.name"),
+      city: t("network.hub.brazil.city"),
+      partner: "Local Medical Institutions",
+      status: t("network.hub.brazil.status"),
+      description: t("network.hub.brazil.description"),
+      highlight: t("network.hub.brazil.highlight"),
+      position: { top: "62%", left: "35%" },
+      flag: "🇧🇷",
+      color: "navy"
+    }
+  ];
 
   return (
     <section className="py-24 bg-gradient-to-br from-navy via-navy to-teal/20">
@@ -56,16 +67,16 @@ export default function GlobalNetworkMap() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-teal uppercase tracking-wider">GLOBAL NETWORK</span>
+          <span className="text-sm font-medium text-teal uppercase tracking-wider">{t("network.badge")}</span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mt-4 mb-6">
-            독보적인 글로벌 PoC 네트워크
+            {t("network.title2")}
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
-            국영·공공 기관 기반의 공신력 높은 3대 핵심 거점 확보
+            {t("network.subtitle2")}
           </p>
           <div className="inline-block bg-white/10 backdrop-blur-sm rounded-lg px-6 py-3 border border-white/20">
             <p className="text-sm text-gray-300">
-              <span className="font-bold text-white">Why GBPL Network?</span> 사설 병원이 아닌 국영/보건부 연계로 공신력 확보 · 단순 협약을 넘어선 실질적 PoC 수행 단계
+              <span className="font-bold text-white">{t("network.why")}</span> {t("network.whyDesc")}
             </p>
           </div>
         </motion.div>
@@ -135,7 +146,7 @@ export default function GlobalNetworkMap() {
                   </div>
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 whitespace-nowrap">
                     <div className="bg-yellow-400 rounded-lg px-3 py-2 shadow-xl">
-                      <p className="text-xs font-bold text-navy">🇰🇷 Seoul HQ</p>
+                      <p className="text-xs font-bold text-navy">🇰🇷 {t("network.hub.seoul")}</p>
                     </div>
                   </div>
                 </div>
@@ -176,12 +187,12 @@ export default function GlobalNetworkMap() {
 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-navy mb-2 text-sm">파트너</h4>
+                    <h4 className="font-semibold text-navy mb-2 text-sm">{t("network.panel.partner")}</h4>
                     <p className="text-sm text-gray-600">{selectedHub.partner}</p>
                   </div>
 
                   <div>
-                    <h4 className="font-semibold text-navy mb-2 text-sm">주요 활동</h4>
+                    <h4 className="font-semibold text-navy mb-2 text-sm">{t("network.panel.activities")}</h4>
                     <p className="text-sm text-gray-600 leading-relaxed">{selectedHub.description}</p>
                   </div>
 
@@ -206,18 +217,18 @@ export default function GlobalNetworkMap() {
         >
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
             <p className="font-mono text-4xl font-bold text-teal mb-2">3</p>
-            <p className="text-sm text-gray-300">글로벌 거점</p>
-            <p className="text-xs text-gray-400 mt-1">영국 · 칠레 · 브라질</p>
+            <p className="text-sm text-gray-300">{t("network.stat.hubs")}</p>
+            <p className="text-xs text-gray-400 mt-1">{t("network.stat.hubsDesc")}</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
             <p className="font-mono text-4xl font-bold text-teal mb-2">100%</p>
-            <p className="text-sm text-gray-300">국영/공공 기관 연계</p>
-            <p className="text-xs text-gray-400 mt-1">높은 공신력 확보</p>
+            <p className="text-sm text-gray-300">{t("network.stat.public")}</p>
+            <p className="text-xs text-gray-400 mt-1">{t("network.stat.publicDesc")}</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
-            <p className="font-mono text-4xl font-bold text-teal mb-2">Active</p>
-            <p className="text-sm text-gray-300">실질적 PoC 수행</p>
-            <p className="text-xs text-gray-400 mt-1">단순 협약을 넘어선 실행</p>
+            <p className="font-mono text-4xl font-bold text-teal mb-2">{t("network.stat.active")}</p>
+            <p className="text-sm text-gray-300">{t("network.stat.activeLabel")}</p>
+            <p className="text-xs text-gray-400 mt-1">{t("network.stat.activeDesc")}</p>
           </div>
         </motion.div>
       </div>

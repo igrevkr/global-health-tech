@@ -9,23 +9,7 @@ const yearlyData = [
   { year: "2025(E)", revenue: 17, employees: 13 },
 ];
 
-const trackRecords = [
-  {
-    title: "AIA생명 고객포털 고도화",
-    description: "금융권 수준의 보안 및 대규모 트래픽 처리",
-    icon: Building,
-  },
-  {
-    title: "교보문고 리딩트리 재구축",
-    description: "대고객 서비스 플랫폼 안정성 확보",
-    icon: Building,
-  },
-  {
-    title: "현대자동차 그룹 계열사 SI",
-    description: "엔터프라이즈급 시스템 통합 역량",
-    icon: Building,
-  },
-];
+
 
 function AnimatedNumber({ value, decimals = 0 }: { value: number; decimals?: number }) {
   const [displayValue, setDisplayValue] = useState(0);
@@ -65,6 +49,24 @@ export default function FinancialChart() {
 
   const maxRevenue = Math.max(...yearlyData.map((d) => d.revenue));
 
+  const trackRecords = [
+    {
+      title: t("financial.track.aia"),
+      description: t("financial.track.aia.desc"),
+      icon: Building,
+    },
+    {
+      title: t("financial.track.kyobo"),
+      description: t("financial.track.kyobo.desc"),
+      icon: Building,
+    },
+    {
+      title: t("financial.track.hyundai"),
+      description: t("financial.track.hyundai.desc"),
+      icon: Building,
+    },
+  ];
+
   return (
     <section className="py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -75,12 +77,12 @@ export default function FinancialChart() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-medium text-teal uppercase tracking-wider">FINANCIAL STABILITY</span>
+          <span className="text-sm font-medium text-teal uppercase tracking-wider">{t("financial.badge")}</span>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-navy mt-4 mb-6">
-            재무 안정성 및 성장 모멘텀
+            {t("financial.title2")}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            폭발적인 초기 성장세와 탄탄한 대형 프로젝트 수행 역량 입증
+            {t("financial.subtitle2")}
           </p>
         </motion.div>
 
@@ -93,7 +95,7 @@ export default function FinancialChart() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="font-display text-2xl font-bold text-navy mb-8">
-              폭발적 양적 성장 (2023 vs 2024)
+              {t("financial.growth.title")}
             </h3>
             
             <div className="space-y-8">
@@ -104,15 +106,15 @@ export default function FinancialChart() {
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">REVENUE</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">{t("financial.revenue.label")}</p>
                     <p className="font-mono text-4xl font-bold text-navy">
-                      <AnimatedNumber value={18.8} decimals={1} />억
+                      <AnimatedNumber value={18.8} decimals={1} />{t("financial.revenue.unit")}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-teal/20 text-teal rounded-full text-sm font-bold">52% 성장</span>
-                  <span className="text-sm text-gray-600">2023년 12.3억 대비</span>
+                  <span className="px-3 py-1 bg-teal/20 text-teal rounded-full text-sm font-bold">{t("financial.revenue.growth")}</span>
+                  <span className="text-sm text-gray-600">{t("financial.revenue.compare")}</span>
                 </div>
               </div>
 
@@ -123,24 +125,23 @@ export default function FinancialChart() {
                     <Users className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">EMPLOYEES</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">{t("financial.employees.label")}</p>
                     <p className="font-mono text-4xl font-bold text-navy">
-                      <AnimatedNumber value={16} />명
+                      <AnimatedNumber value={16} />{t("financial.employees.unit")}
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-navy/20 text-navy rounded-full text-sm font-bold">166% 증가</span>
-                  <span className="text-sm text-gray-600">2023년 6명 대비</span>
+                  <span className="px-3 py-1 bg-navy/20 text-navy rounded-full text-sm font-bold">{t("financial.employees.growth")}</span>
+                  <span className="text-sm text-gray-600">{t("financial.employees.compare")}</span>
                 </div>
               </div>
 
               {/* 2025 Strategy */}
               <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                <h4 className="font-bold text-navy mb-2">2025년 전략</h4>
+                <h4 className="font-bold text-navy mb-2">{t("financial.strategy.title")}</h4>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  고부가가치 글로벌 사업 집중을 위해 매출 목표를 보수적으로 조정(16~18억)하고, 
-                  핵심 인력 위주로 조직을 재편하여 내실 다지기에 주력.
+                  {t("financial.strategy.desc")}
                 </p>
               </div>
             </div>
@@ -154,10 +155,10 @@ export default function FinancialChart() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="font-display text-2xl font-bold text-navy mb-4">
-              검증된 기술 안정성
+              {t("financial.tech.title")}
             </h3>
             <p className="text-gray-600 mb-8">
-              대형 금융 및 기업 프로젝트 수행으로 입증된 IT/보안 역량
+              {t("financial.tech.subtitle")}
             </p>
 
             <div className="space-y-4 mb-8">
@@ -182,11 +183,10 @@ export default function FinancialChart() {
             <div className="bg-gradient-to-br from-coral/5 to-coral/10 rounded-2xl p-6 border border-coral/20">
               <h4 className="font-bold text-navy mb-3 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-coral" />
-                안정적 캐시카우 확보
+                {t("financial.cashcow.title")}
               </h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                기존 SI/ITO 사업의 안정적인 수익 기반은 글로벌 의료 AI 사업의 
-                초기 리스크를 상쇄하고 지속 가능한 투자를 가능하게 합니다.
+                {t("financial.cashcow.desc")}
               </p>
             </div>
           </motion.div>
@@ -202,7 +202,7 @@ export default function FinancialChart() {
           className="bg-gradient-to-br from-navy to-navy/90 rounded-2xl p-8 lg:p-12"
         >
           <h3 className="font-display text-2xl font-bold text-white mb-8 text-center">
-            연도별 매출 및 인력 추이
+            {t("financial.chart.title")}
           </h3>
           
           <div className="grid grid-cols-3 gap-8">
@@ -221,12 +221,12 @@ export default function FinancialChart() {
                 </div>
                 <div className="space-y-2">
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                    <p className="text-xs text-gray-400 mb-1">매출</p>
-                    <p className="font-mono text-xl font-bold text-white">{data.revenue}억</p>
+                    <p className="text-xs text-gray-400 mb-1">{t("financial.chart.revenue")}</p>
+                    <p className="font-mono text-xl font-bold text-white">{data.revenue}{t("financial.revenue.unit")}</p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                    <p className="text-xs text-gray-400 mb-1">인력</p>
-                    <p className="font-mono text-xl font-bold text-white">{data.employees}명</p>
+                    <p className="text-xs text-gray-400 mb-1">{t("financial.chart.workforce")}</p>
+                    <p className="font-mono text-xl font-bold text-white">{data.employees}{t("financial.employees.unit")}</p>
                   </div>
                 </div>
               </div>
