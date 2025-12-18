@@ -86,28 +86,28 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
             >
               <div className="mb-12">
-                <p className="text-navy text-sm mb-4 px-4 py-2 bg-gray-100 rounded-full inline-block">2025 Seoul SBA Strategic Proposal</p>
+                <p className="text-navy text-sm mb-4 px-4 py-2 bg-gray-100 rounded-full inline-block">{t("home.hero.badge")}</p>
                 <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-navy leading-tight mb-8">
-                  글로벌마케팅센터<br />
-                  입주 전략 보고서
+                  {t("home.hero.title1")}<br />
+                  {t("home.hero.title2")}
                 </h1>
               </div>
               
               <div className="space-y-4 mb-12">
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  의료 AI 기술 기반의
+                  {t("home.hero.subtitle1")}
                 </p>
                 <p className="text-2xl font-bold text-navy border-l-4 border-navy pl-4">
-                  서울 중소기업 실증형 수출 지원 전문 기업
+                  {t("home.hero.subtitle2")}
                 </p>
               </div>
 
               <div className="mb-16 pb-8 border-b border-gray-200">
                 <p className="text-gray-700 mb-2">
-                  <span className="font-semibold text-navy">지비피엘 주식회사</span>
+                  <span className="font-semibold text-navy">{t("home.hero.company")}</span>
                 </p>
                 <p className="text-gray-500 text-sm">
-                  발표자 : 김수봉 (대표이사 · 13년차 풀스택 개발자)
+                  {t("home.hero.presenter")}
                 </p>
               </div>
 
@@ -117,9 +117,9 @@ export default function HomePage() {
                   <div className="flex items-start gap-2 mb-2">
                     <Building2 className="w-5 h-5 text-navy flex-shrink-0 mt-1" />
                     <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">FOUNDATION</p>
-                      <p className="font-bold text-navy text-sm mb-1">2022. 06. 01 설립</p>
-                      <p className="text-xs text-gray-500">안정적 기술 기반 성장</p>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{t("home.hero.foundation")}</p>
+                      <p className="font-bold text-navy text-sm mb-1">{t("home.hero.foundationDate")}</p>
+                      <p className="text-xs text-gray-500">{t("home.hero.foundationDesc")}</p>
                     </div>
                   </div>
                 </div>
@@ -127,9 +127,9 @@ export default function HomePage() {
                   <div className="flex items-start gap-2 mb-2">
                     <CheckCircle2 className="w-5 h-5 text-navy flex-shrink-0 mt-1" />
                     <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">CERTIFICATION</p>
-                      <p className="font-bold text-navy text-xs mb-1">기업부설연구소 · 벤처기업</p>
-                      <p className="text-xs text-gray-500">AI 바우처 공급기업 등록</p>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{t("home.hero.certification")}</p>
+                      <p className="font-bold text-navy text-xs mb-1">{t("home.hero.certificationValue")}</p>
+                      <p className="text-xs text-gray-500">{t("home.hero.certificationDesc")}</p>
                     </div>
                   </div>
                 </div>
@@ -137,9 +137,9 @@ export default function HomePage() {
                   <div className="flex items-start gap-2 mb-2">
                     <TrendingUp className="w-5 h-5 text-navy flex-shrink-0 mt-1" />
                     <div>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">2024 REVENUE</p>
-                      <p className="font-bold text-navy text-xl mb-1">18.8억 원 달성</p>
-                      <p className="text-xs text-gray-500">전년 대비 52% 고속 성장</p>
+                      <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">{t("home.hero.revenue")}</p>
+                      <p className="font-bold text-navy text-xl mb-1">{t("home.hero.revenueValue")}</p>
+                      <p className="text-xs text-gray-500">{t("home.hero.revenueDesc")}</p>
                     </div>
                   </div>
                 </div>
@@ -255,15 +255,15 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <span className="text-sm font-medium text-teal uppercase tracking-wider">CORE BUSINESS</span>
+            <span className="text-sm font-medium text-teal uppercase tracking-wider">{t("home.core.badge")}</span>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-navy mt-4 mb-6">
-              GBPL 핵심 서비스 모델
+              {t("home.core.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              국내 의료 기업의 글로벌 성공을 위한 4대 수출 주력 서비스
+              {t("home.core.subtitle")}
             </p>
             <p className="text-sm text-gray-500 mt-4 max-w-4xl mx-auto">
-              단일 제품 판매가 아닌, 플랫폼 기반의 통합 수출 생태계를 구축합니다.
+              {t("home.core.description")}
             </p>
           </motion.div>
 
@@ -283,23 +283,23 @@ export default function HomePage() {
                 <Brain className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-display text-xl font-bold text-navy mb-3">
-                AI 기반 의료영상 분석 플랫폼
+                {t("home.service1.title")}
               </h3>
               <p className="text-sm text-gray-600 mb-4">
-                대학병원 협력 자체 기술력 확보
+                {t("home.service1.subtitle")}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" />
-                  <span>상복부 초음파 분석 - 지방간 정도 자동 분석 AI</span>
+                  <span>{t("home.service1.item1")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" />
-                  <span>흉부 X-ray 진단 - 폐렴·결절·흉막 질환 검출</span>
+                  <span>{t("home.service1.item2")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-teal flex-shrink-0 mt-0.5" />
-                  <span>수출형 SaaS 모델 구축 기반</span>
+                  <span>{t("home.service1.item3")}</span>
                 </li>
               </ul>
             </motion.div>
@@ -313,27 +313,27 @@ export default function HomePage() {
                 <Globe2 className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-display text-xl font-bold text-navy mb-3">
-                해외 의료기관 실증(PoC) 연계
+                {t("home.service2.title")}
               </h3>
               <p className="text-sm text-gray-600 mb-4">
-                현지 병원 직접 협력 테스트
+                {t("home.service2.subtitle")}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-navy flex-shrink-0 mt-0.5" />
-                  <span>현지 의료진 협업 기반 검증</span>
+                  <span>{t("home.service2.item1")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-navy flex-shrink-0 mt-0.5" />
-                  <span>실제 임상 데이터 확보 및 피드백</span>
+                  <span>{t("home.service2.item2")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-navy flex-shrink-0 mt-0.5" />
-                  <span>기술 검증 서비스 리포트 제공</span>
+                  <span>{t("home.service2.item3")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-navy flex-shrink-0 mt-0.5" />
-                  <span>영국·칠레·브라질 거점 활용</span>
+                  <span>{t("home.service2.item4")}</span>
                 </li>
               </ul>
             </motion.div>
@@ -347,27 +347,27 @@ export default function HomePage() {
                 <Rocket className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-display text-xl font-bold text-navy mb-3">
-                국내 의료기업 해외 진출 지원
+                {t("home.service3.title")}
               </h3>
               <p className="text-sm text-gray-600 mb-4">
-                전주기적 수출 실행력 제공
+                {t("home.service3.subtitle")}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
-                  <span>규제/인허가 가이드 (FDA/CE)</span>
+                  <span>{t("home.service3.item1")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
-                  <span>국가별 시장조사 및 수요분석</span>
+                  <span>{t("home.service3.item2")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
-                  <span>해외 바이어/유통사 매칭</span>
+                  <span>{t("home.service3.item3")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-coral flex-shrink-0 mt-0.5" />
-                  <span>해외 판매 전략 수립 컨설팅</span>
+                  <span>{t("home.service3.item4")}</span>
                 </li>
               </ul>
             </motion.div>
@@ -381,23 +381,23 @@ export default function HomePage() {
                 <Building2 className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-display text-xl font-bold text-navy mb-3">
-                의료 솔루션 Joint-Package
+                {t("home.service4.title")}
               </h3>
               <p className="text-sm text-gray-600 mb-4">
-                H/W + S/W 묶음 수출 모델
+                {t("home.service4.subtitle")}
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
-                  <span>자체 AI S/W + 국내 의료기기 (초음파, 체성분 장비 등)</span>
+                  <span>{t("home.service4.item1")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
-                  <span>시장 진입 확률 및 효율 극대화</span>
+                  <span>{t("home.service4.item2")}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
-                  <span>실증 성공률 제고 전략</span>
+                  <span>{t("home.service4.item3")}</span>
                 </li>
               </ul>
             </motion.div>
@@ -405,11 +405,11 @@ export default function HomePage() {
 
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-4 px-6 py-3 bg-gray-100 rounded-full">
-              <span className="text-sm font-medium text-gray-600">자체 기술력</span>
+              <span className="text-sm font-medium text-gray-600">{t("home.core.flow1")}</span>
               <ChevronRight className="w-4 h-4 text-gray-400" />
-              <span className="text-sm font-medium text-gray-600">글로벌 네트워크</span>
+              <span className="text-sm font-medium text-gray-600">{t("home.core.flow2")}</span>
               <ChevronRight className="w-4 h-4 text-gray-400" />
-              <span className="text-sm font-medium text-gray-600">실행 파트너십</span>
+              <span className="text-sm font-medium text-gray-600">{t("home.core.flow3")}</span>
             </div>
           </div>
         </div>
